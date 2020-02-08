@@ -1,11 +1,6 @@
 import cv2
-from PSPNet import predict_segmentation
 from DFT_tools import *
-__all__ = ('get_contours', 'get_ani', 'start_neuro_segmentation')
-
-
-def start_neuro_segmentation(image_name, *, ID=None):
-    out = predict_segmentation(input_name=image_name, output_name=f'{ID}_befor1.jpg')
+__all__ = ('get_contours', 'get_ani')
 
 
 def color_correction(image_name, *, ID=None, reverse=True, out_name='befor2'):

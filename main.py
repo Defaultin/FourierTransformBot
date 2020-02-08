@@ -1,10 +1,12 @@
 import DFT as dft
+import PSPNet as pspn
 import data_tools as data
 from bot_lang import languages
 import telebot
 import logging
 import os
 
+pspn_model, class_colors = pspn.load_PSPNet()
 user_language = {}
 users_for_neuroproceccing = set()
 TOKEN = '894784788:AAGnH46A1qWl5TTSXs-zsGlQzo0F-Dw-tSg'
@@ -210,12 +212,9 @@ def bot_get_text(message):
         bot.send_message(
             message.chat.id, languages[user_language[message.chat.id]]['text_5'], reply_markup=hide_keyboard)
         try:
-            dft.start_neuro_segmentation(
-                f'{message.chat.id}_befor1.jpg', ID=message.chat.id)
-            dft.color_correction(f'{message.chat.id}_befor1.jpg',
-                                 ID=message.chat.id, reverse=True, out_name='befor1')
-            dft.get_contours(
-                f'{message.chat.id}_befor1.jpg', ID=message.chat.id)
+            pspn.start_neuro_segmentation(f'{message.chat.id}_befor1.jpg', pspn_model, class_colors, ID=message.chat.id)
+            dft.color_correction(f'{message.chat.id}_befor1.jpg', ID=message.chat.id, reverse=True, out_name='befor1')
+            dft.get_contours(f'{message.chat.id}_befor1.jpg', ID=message.chat.id)
             processed_image = open(f'{message.chat.id}_after.jpg', 'rb')
             bot.send_photo(message.chat.id, processed_image)
             processed_image.close()
