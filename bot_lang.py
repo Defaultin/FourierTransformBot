@@ -6,13 +6,11 @@ russian = {
     'commands': '/start - запустить Fourier Transform Bot \n/commands - вывести список поддерживаемых команд \n/language - изменить язык бота \n/about - показать информацию о преобразовании Фурье \n/examples - показать примеры обрабатываемых изображений \n/help - вывести справочную информацию \n',
     'language': 'Пожалуйста, выберите язык',
     'about': """
-    Преобразование Фурье - это инструмент, который разбивает форму волны (функцию или сигнал) на альтернативное представление, характеризуемое синусом и косинусом. Преобразование Фурье показывает, что любой сигнал может быть переписан как сумма синусоидальных функций.
-Преобразование Фурье - это способ для нас взять объединенную волну и вернуть обратно каждую синусоидальную волну.
-Почему? Оказывается, многие вещи в реальном мире взаимодействуют на основе этих синусоидальных волн. Мы обычно называем их частотами волны.
-Наиболее очевидным примером является звук - когда мы слышим звук, мы не слышим эту волнистую линию, но мы слышим различные частоты синусоидальных волн, из которых состоит звук.
-Возможность разделить их на компьютере может дать нам понимание того, что человек на самом деле слышит. Мы можем понять, насколько высокий или низкий звук, или выяснить, что это за нота.
-Мы также можем использовать этот процесс на волнах, которые не выглядят так, будто они сделаны из синусоидальных волн.
-По сути, это то, что делают MP3, за исключением того, что они более умны в отношении того, какие частоты они сохраняют и какие они выбрасывают. В действительности у нас есть другой формат данных, называемый SVG, который, вероятно, лучше справляется с типами фигур, которые создаём мы. Итак, на данный момент, это действительно просто для того, чтобы делать увлекательные гифки.
+    Огромное значение в жизни человека имеет восприятие информации из окружающего мира. Одним из основных инструментов восприятия является слух. Когда мы слышим звук, мы не слышим саму звуковую волну, но мы слышим различные частоты синусоидальных волн, из которых она состоит. Человеческий мозг преобразует поступающую в ухо звуковую волну в воспринимаемую информацию с помощью некоторого преобразования, представляющего звуковые волны в виде колебательного движения частиц в упругой среде со своими значениями громкости и интенсивности для тонов различных высот. 
+
+С помощью математических методов можно проводить аналогичные операции над любыми колебательными процессами: от человеческого голоса и электрических сигналов до световых волн и циклов солнечной активности. Пользуясь преобразованием Фурье, можно раскладывать волны, функции или сигналы, на альтернативные представления в виде набора синусоидальных составляющих.
+
+В настоящее время преобразование Фурье является мощным инструментом, применяемым в различных научных областях: в физике, математике, акустике, океанологии, археологии, оптике, геометрии, и многих других. С его помощью можно решать сложные уравнения, описывающие динамические процессы электрической, тепловой или световой энергии. Также оно позволяет выделять регулярные составляющие в сложном колебательном сигнале, что помогает правильно интерпретировать экспериментальные наблюдения в астрономии, медицине и химии. 
     """,
     'photo_1': 'Загрузка...',
     'photo_2': 'Вас устраивает обработка изображения? \nПожалуйста, выберите наиболее подходящий из двух предложенных вариантов.',
@@ -31,13 +29,11 @@ english = {
     'commands': '/start - launch Fourier Transform Bot \n/commands - show list of supported commands \n/language - set bot language \n/about - show information about Fourier transforms \n/examples - show examples of images processed by the bot \n/help - show reference information \n',
     'language': 'Please choose the language.',
     'about': """
-           The Fourier Transform is a tool that breaks a waveform (a function or signal) into an alternate representation characterized by sines and cosines. The Fourier Transform shows that any waveform can be re-written as the sum of sinusoidal functions.
-The Fourier transform is a way for us to take the combined wave, and get each of the sine waves back out. 
-Why? Turns out a lot of things in the real world interact based on these sine waves. We usually call them the wave's frequencies.
-The most obvious example is sound – when we hear a sound, we don’t hear that squiggly line, but we hear the different frequencies of the sine waves that make up the sound.
-Being able to split them up on a computer can give us an understanding of what a person actually hears. We can understand how high or low a sound is, or figure out what note it is.
-We can also use this process on waves that don't look like they're made of sine waves.
-This is essentially what MP3s do, except they're more clever about which frequencies they keep and which ones they throw away. In reality we have another data format called SVG, which probably does a better job for the types of shapes we tend to create. So for the moment, this is really just for making cool little gifs.
+           Of great importance in human life is the perception of information from the outside world. One of the main tools of perception is hearing. When we hear sound, we do not hear the sound wave itself, but we hear the various frequencies of the sine waves of which it consists. The human brain converts the sound wave entering the ear into perceived information with the help of some transformation representing sound waves in the form of oscillatory motion of particles in an elastic medium with its own volume and intensity values for tones of various heights.
+
+Using mathematical methods, it is possible to carry out similar operations on any oscillatory processes: from the human voice and electrical signals to light waves and solar activity cycles. Using the Fourier transform, you can decompose waves, functions or signals into alternative representations in the form of a set of sinusoidal components.
+
+Currently, the Fourier transform is a powerful tool used in various scientific fields: in physics, mathematics, acoustics, oceanology, archeology, optics, geometry, and many others. It can be used to solve complex equations that describe the dynamic processes of electrical, thermal, or light energy. It also makes it possible to isolate regular components in a complex oscillatory signal, which helps to correctly interpret experimental observations in astronomy, medicine, and chemistry.
            """,
     'photo_1': 'Loading...',
     'photo_2': 'Are you satisfied with your image processed? \nPlease choose one of the two variants of the final picture.',
@@ -56,12 +52,11 @@ deutsch = {
     'commands': '/start - Fourier Transform Bot starten \n/commands - alle unterstützte Befehle zeigen \n/language - Sprache ändern \n/about - mehr Informationen über den Fourier-Transformationen zeigen \n/examples - Beispielbilder zeigen \n/help - Auskunft erteilen \n',
     'language': 'Wählen Sie bitte die Sprache aus.',
     'about': """
-    Die Fourier-Transformation ist ein Zeug, das eine Wellenform (eine Funktion oder Signal) in eine alternative Darstellung zerbrecht, charakterisiert mit Sinuse und Kosinuse. Die Fourier-Transformation zeigt, dass jede Wellenform als eine Summe Sinusförmiger Funktionen neu geschrieben werden kann.
-    Die Fourier-Transformation ist für uns die Art und Weise eine kombinierte Welle zu nehmen und jede Sinuswelle zurückbekommen.
-    Warum? Es stellt sich heraus, dass viele Sachen in unserem Welt eufeinander mithilfe dieser Sinuswellen einwirken. Wir nennen sie gewöhnlich Wellenfrequenze.
-    Das deutlichste Beispiel ist Laut: wenn wir das hören, sehen wir keine gewellte Kurve, aber wir hören verschiedene Frequenzen der Sinuswellen, die den Laut machen. Die Möglichkeit, sie am Computer zu teilen, gibt uns das Verstehen von was eine Person wirklich hört. Wir können verstehen, wie hoch oder niedrig der Laut ist, oder die Note erkennen.
-    Wir können dieses Prozess auch für solchen Kurven benutzen, die nicht so aussehen, ais ob sie aus Sinuswellen gemacht sind.
-    Das ist im Grunde genommen was MP3 machen, außer dass sie besser verstehen, welche Frequenze zu lassen und welche wegzuwerfen. In der Realität gibt es einen anderen Dataformat, das SVG heißt. SVG arbeitet wahrscheinlich besser mit den Figurenformen, die wir oft erschaffen. Also zum Moment ist das wirklich nur um schöne kleine gifs zu machen. 
+    Von großer Bedeutung im menschlichen Leben ist die Wahrnehmung von Informationen aus der Außenwelt. Eines der Hauptinstrumente der Wahrnehmung ist das Hören. Wenn wir Schall hören, hören wir nicht die Schallwelle selbst, sondern die verschiedenen Frequenzen der Sinuswellen, aus denen sie besteht. Das menschliche Gehirn wandelt die in das Ohr eintretende Schallwelle mithilfe einer Transformation in wahrgenommene Informationen um, die Schallwellen in Form einer Oszillationsbewegung von Partikeln in einem elastischen Medium mit eigenen Volumen- und Intensitätswerten für Töne unterschiedlicher Höhe darstellt.
+
+Mit mathematischen Methoden ist es möglich, ähnliche Operationen an beliebigen Schwingungsprozessen durchzuführen: von der menschlichen Stimme über elektrische Signale bis hin zu Lichtwellen und Sonnenaktivitätszyklen. Mit der Fourier-Transformation können Sie Wellen, Funktionen oder Signale in Form eines Satzes sinusförmiger Komponenten in alternative Darstellungen zerlegen.
+
+Derzeit ist die Fourier-Transformation ein leistungsstarkes Werkzeug, das in verschiedenen wissenschaftlichen Bereichen eingesetzt wird: in Physik, Mathematik, Akustik, Ozeanologie, Archäologie, Optik, Geometrie und vielen anderen. Es kann verwendet werden, um komplexe Gleichungen zu lösen, die die dynamischen Prozesse von elektrischer, thermischer oder Lichtenergie beschreiben. Es ermöglicht auch die Isolierung regelmäßiger Komponenten in einem komplexen Schwingungssignal, wodurch experimentelle Beobachtungen in Astronomie, Medizin und Chemie korrekt interpretiert werden können.
     """,
     'photo_1': 'Ladung...',
     'photo_2': 'Passt Ihnen die Bearbeitung Ihres Bildes? \nWählen Sie bitte das Beste aus den zwei Ergebnissen.',
