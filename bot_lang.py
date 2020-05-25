@@ -17,8 +17,8 @@ russian = {
     'text_1': 'Тогда начинаю преобразования.',
     'text_2': 'Отправьте более подходящее изображение.',
     'text_3': 'Всегда к вашим услугам!',
-    'text_4': 'Мне обработать изображение с использованием глубокой сверточной нейронной сети для сегментации изображений?',
-    'text_5': 'Начинаю обработку нейросетью. Это может занять несколько минут. Пожалуйста, подождите немного!',
+    'text_4': 'Мне обработать изображение с использованием сверточной нейронной сети для сегментации изображений?',
+    'text_5': 'Начинаю обработку нейросетью. Это может занять пару секунд. Пожалуйста, подождите немного!',
     'other': 'Эта команда не распознана! Проверьте поддерживаемые команды /commands.',
     'error': 'Ошибка! \nГраница изображения не распознана! \nВозможно, оно является однотонным и не имеет границы. \nОтправьте мне картинку с чётко определенной текстурой и границами.'
 }
@@ -40,8 +40,8 @@ Currently, the Fourier transform is a powerful tool used in various scientific f
     'text_1': 'Then I start transforming the image.',
     'text_2': 'Download another more suitable image.',
     'text_3': 'Always at your service!',
-    'text_4': 'Should I process the image using deep convolutional neural networks for image segmentation?',
-    'text_5': "I'm starting neural network procession. It may take a few minutes. Please wait a bit!",
+    'text_4': 'Should I process the image using convolutional neural networks for image segmentation?',
+    'text_5': "I'm starting neural network procession. It may take a few seconds. Please wait a bit!",
     'other': 'This command is not recognized! See supported /commands.',
     'error': 'Error! \nThe borders of the image can’t be defined. \nYou must’ve given me a plain background with nothing on it. \nPlease send me a photo with clearly defined texture and borders.'
 }
@@ -64,7 +64,7 @@ Derzeit ist die Fourier-Transformation ein leistungsstarkes Werkzeug, das in ver
     'text_2': 'Schicken Sie bitte ein besser passendes Bild.',
     'text_3': 'Ich stehe zu Ihren Diensten!',
     'text_4': 'Soll ich jetzt anfangen mit der Bearbeitung durch Tieffaltungsneuronetzwerk',
-    'text_5': 'Ich fange mit der Neuronetzwerkbearbeitung an. Das könnte ein Paar minuten sein. Warten Sie bitte ein Bisschen ab!',
+    'text_5': 'Ich fange mit der Neuronetzwerkbearbeitung an. Das könnte ein Paar Sekunden sein. Warten Sie bitte ein Bisschen ab!',
     'other': 'Das Befehl ich nicht erkannt! Sehen Sie bitte /commands an.',
     'error': 'Fehler! \nDie Grenzen des Bildes sind nicht bestimmt! \nSie haben mir vielleicht nur den Eintonnenhintergrund gesendet. \nSchicken Sie mir ein fest umgrenztes Bild.'
 }
