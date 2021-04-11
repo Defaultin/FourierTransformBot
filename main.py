@@ -1,7 +1,7 @@
-import DFT as dft
-import PSPNet as pspn
-import data_tools as data
-from bot_lang import languages
+from source import DFT as dft
+from source import PSPNet as pspn
+from source import data_tools as data
+from source.bot_lang import languages
 import telebot
 import logging
 import os
@@ -30,7 +30,7 @@ neuro_keyboard_de.row('JA 👍', 'NEIN 👎')
 
 def send_start_info(chat_id):
     bot.send_message(chat_id, languages[user_language[chat_id]]['start_1'])
-    video = open('start.mp4', 'rb')
+    video = open('media/start.mp4', 'rb')
     bot.send_video(chat_id, video)
     video.close()
     bot.send_message(chat_id, languages[user_language[chat_id]]['start_2'])
@@ -69,39 +69,22 @@ def bot_language(message):
 @bot.message_handler(commands=['examples'])
 def bot_examples(message):
     user_language.update(data.load_dataset())
-    example_1 = open('001.jpg', 'rb')
-    example_2 = open('002.jpg', 'rb')
-    example_3 = open('003.jpg', 'rb')
-    example_4 = open('004.jpg', 'rb')
-    example_5 = open('005.jpg', 'rb')
-    example_6 = open('006.jpg', 'rb')
-    example_7 = open('007.jpg', 'rb')
-    example_8 = open('008.jpg', 'rb')
-    example_9 = open('009.jpg', 'rb')
-    example_10 = open('010.jpg', 'rb')
-    medias = [
-        telebot.types.InputMediaPhoto(example_1, "Example №1"),
-        telebot.types.InputMediaPhoto(example_2, "Example №2"),
-        telebot.types.InputMediaPhoto(example_3, "Example №3"),
-        telebot.types.InputMediaPhoto(example_4, "Example №4"),
-        telebot.types.InputMediaPhoto(example_5, "Example №5"),
-        telebot.types.InputMediaPhoto(example_6, "Example №6"),
-        telebot.types.InputMediaPhoto(example_7, "Example №7"),
-        telebot.types.InputMediaPhoto(example_8, "Example №8"),
-        telebot.types.InputMediaPhoto(example_9, "Example №9"),
-        telebot.types.InputMediaPhoto(example_10, "Example №10"),
+    examples = [
+        open('media/001.jpg', 'rb')
+        open('media/002.jpg', 'rb')
+        open('media/003.jpg', 'rb')
+        open('media/004.jpg', 'rb')
+        open('media/005.jpg', 'rb')
+        open('media/006.jpg', 'rb')
+        open('media/007.jpg', 'rb')
+        open('media/008.jpg', 'rb')
+        open('media/009.jpg', 'rb')
+        open('media/010.jpg', 'rb')
     ]
+    medias = [telebot.types.InputMediaPhoto(ex, f"Example №{i}") for i, ex in enumerate(examples)]
     bot.send_media_group(message.chat.id, medias)
-    example_1.close()
-    example_2.close()
-    example_3.close()
-    example_4.close()
-    example_5.close()
-    example_6.close()
-    example_7.close()
-    example_8.close()
-    example_9.close()
-    example_10.close()
+    for ex in examples:
+        ex.close()
 
 
 @bot.message_handler(commands=['about'])
@@ -109,7 +92,7 @@ def bot_about(message):
     user_language.update(data.load_dataset())
     bot.send_message(
         message.chat.id, languages[user_language[message.chat.id]]['about'])
-    formula = open('formula.jpg', 'rb')
+    formula = open('media/formula.jpg', 'rb')
     bot.send_photo(message.chat.id, formula)
     formula.close()
 
