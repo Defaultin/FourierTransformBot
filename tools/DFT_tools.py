@@ -3,7 +3,6 @@ import numpy as np
 from pylab import *
 from PIL import Image
 from math import pi
-from numba import njit
 from numpy import interp
 from scipy.integrate import quad
 from matplotlib import animation
@@ -42,7 +41,6 @@ def coef_list(time_table, x_table, y_table, order=10):
     return np.array(coef_list)
 
 
-@njit(fastmath=True)
 def DFT(t, coef_list, order=10):
     kernel = np.array([np.exp(-n*1j*t) for n in range(-order, order+1)])
     series = np.sum((coef_list[:, 0]+1j*coef_list[:, 1]) * kernel[:])
