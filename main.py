@@ -1,10 +1,15 @@
-from source import DFT as dft
-from source import PSPNet as pspn
-from source import data_tools as data
-from source.bot_lang import languages
+from tools import DFT as dft
+from tools import PSPNet as pspn
+from tools import data_tools as data
+from tools import languages
 import telebot
 import logging
 import os
+
+
+APPROX = 60
+FRAMES = 200
+
 
 pspn_model, class_colors = pspn.load_PSPNet()
 user_language = {}
@@ -70,15 +75,15 @@ def bot_language(message):
 def bot_examples(message):
     user_language.update(data.load_dataset())
     examples = [
-        open('media/001.jpg', 'rb')
-        open('media/002.jpg', 'rb')
-        open('media/003.jpg', 'rb')
-        open('media/004.jpg', 'rb')
-        open('media/005.jpg', 'rb')
-        open('media/006.jpg', 'rb')
-        open('media/007.jpg', 'rb')
-        open('media/008.jpg', 'rb')
-        open('media/009.jpg', 'rb')
+        open('media/001.jpg', 'rb'),
+        open('media/002.jpg', 'rb'),
+        open('media/003.jpg', 'rb'),
+        open('media/004.jpg', 'rb'),
+        open('media/005.jpg', 'rb'),
+        open('media/006.jpg', 'rb'),
+        open('media/007.jpg', 'rb'),
+        open('media/008.jpg', 'rb'),
+        open('media/009.jpg', 'rb'),
         open('media/010.jpg', 'rb')
     ]
     medias = [telebot.types.InputMediaPhoto(ex, f"Example №{i}") for i, ex in enumerate(examples)]
@@ -95,6 +100,22 @@ def bot_about(message):
     formula = open('media/formula.jpg', 'rb')
     bot.send_photo(message.chat.id, formula)
     formula.close()
+
+
+@bot.message_handler(commands=['approx'])
+def bot_about(message):
+    global APPROX
+    approx = message.text.replace('/approx', '').strip()
+    APPROX = int(approx) if approx else APPROX
+    bot.send_message(message.chat.id, f'approx = {APPROX}')
+
+
+@bot.message_handler(commands=['frames'])
+def bot_about(message):
+    global FRAMES
+    frames = message.text.replace('/frames', '').strip()
+    FRAMES = int(frames) if frames else FRAMES
+    bot.send_message(message.chat.id, f'frames = {FRAMES}')
 
 
 @bot.message_handler(content_types=['photo'])
@@ -140,7 +161,7 @@ def bot_get_text(message):
             message.chat.id, languages[user_language[message.chat.id]]['text_1'], reply_markup=hide_keyboard)
         try:
             dft.get_ani(f'{message.chat.id}_befor1.jpg',
-                        ID=message.chat.id, approx_level=60, frames=200)
+                        ID=message.chat.id, approx_level=APPROX, frames=FRAMES)
             result_video = open(f'{message.chat.id}_Fourier.mp4', 'rb')
             bot.send_video(message.chat.id, result_video)
             result_video.close()
@@ -160,7 +181,7 @@ def bot_get_text(message):
             message.chat.id, languages[user_language[message.chat.id]]['text_1'], reply_markup=hide_keyboard)
         try:
             dft.get_ani(f'{message.chat.id}_befor2.jpg',
-                        ID=message.chat.id, approx_level=60, frames=200)
+                        ID=message.chat.id, approx_level=APPROX, frames=FRAMES)
             result_video = open(f'{message.chat.id}' + '_Fourier.mp4', 'rb')
             bot.send_video(message.chat.id, result_video)
             result_video.close()
@@ -261,3 +282,5 @@ while True:
         bot.polling(none_stop=True)
     except Exception as e:
         logging.error(e)
+    finally:
+        exit()
