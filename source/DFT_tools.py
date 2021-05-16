@@ -41,6 +41,7 @@ def coef_list(time_table, x_table, y_table, order=10):
     return np.array(coef_list)
 
 
+@njit(fastmath=True)
 def DFT(t, coef_list, order=10):
     kernel = np.array([np.exp(-n*1j*t) for n in range(-order, order+1)])
     series = np.sum((coef_list[:, 0]+1j*coef_list[:, 1]) * kernel[:])
@@ -49,15 +50,16 @@ def DFT(t, coef_list, order=10):
 
 def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
     fig, ax = plt.subplots()
+    fig.patch.set_facecolor('black')
     lim = 3*max(fig_lim)/2
     ax.set_xlim([-lim, lim])
     ax.set_ylim([-lim, lim])
     ax.set_aspect('equal')
 
-    line = plt.plot([], [], 'k-', linewidth=2)[0]
-    radius = [plt.plot([], [], 'r-', linewidth=0.5)[0]
+    line = plt.plot([], [], color='black', linewidth=2)[0]
+    radius = [plt.plot([], [], color='red', linewidth=0.5)[0]
               for _ in range(2 * order + 1)]
-    circles = [plt.plot([], [], 'r-', linewidth=0.5)[0]
+    circles = [plt.plot([], [], color='red', linewidth=0.5)[0]
                for _ in range(2 * order + 1)]
 
     def update_c(c, t):
@@ -65,7 +67,7 @@ def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
         for i, j in enumerate(range(-order, order + 1)):
             theta = -j * t
             cos, sin = np.cos(theta), np.sin(theta)
-            v = [cos * c[i][0] - sin * c[i][1], sin * c[i][0] + cos * c[i][1]]
+            v = np.array([cos * c[i, 0] - sin * c[i, 1], sin * c[i, 0] + cos * c[i, 1]])
             new_c.append(v)
         return np.array(new_c)
 
@@ -77,7 +79,8 @@ def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
 
     def animate(i):
         line.set_data(x_DFT[:i], y_DFT[:i])
-        r = [np.linalg.norm(coef[j]) for j in range(len(coef))]
+        line.set_color(np.random.random(3))
+        r = np.array([np.linalg.norm(coef[j]) for j in range(len(coef))])
         pos = coef[order]
         c = update_c(coef, i / len(space) * (2*pi))
         idx = circle_sorting(order)
@@ -89,7 +92,7 @@ def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
             circle.set_data(x, y)
             pos = new_pos
 
-    plt.title('t.me/FourierTransformBot')
+    plt.title('@fourierdrawing', color='white')
     ax.axis('off')
     ani = animation.FuncAnimation(fig, animate, frames=len(space), interval=50)
     return ani
