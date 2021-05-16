@@ -7,8 +7,8 @@ import logging
 import os
 
 
-APPROX = 60
-FRAMES = 200
+APPROX = 80
+FRAMES = 250
 
 
 pspn_model, class_colors = pspn.load_PSPNet()
