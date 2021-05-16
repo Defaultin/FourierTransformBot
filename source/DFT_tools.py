@@ -8,9 +8,6 @@ from scipy.integrate import quad
 from matplotlib import animation
 
 
-plt.rcParams['figure.facecolor'] = 'black'
-
-
 def create_contour(image_name, *, level=[200]):
     image = Image.open(image_name).convert('L')
     im = array(image)
@@ -53,12 +50,11 @@ def DFT(t, coef_list, order=10):
 
 def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
     fig, ax = plt.subplots()
+    fig.patch.set_facecolor('black')
     lim = 3*max(fig_lim)/2
     ax.set_xlim([-lim, lim])
     ax.set_ylim([-lim, lim])
     ax.set_aspect('equal')
-    ax.set_facecolor('black')
-    fig.patch.set_facecolor('black')
 
     line = plt.plot([], [], color='black', linewidth=2)[0]
     radius = [plt.plot([], [], color='red', linewidth=0.5)[0]
