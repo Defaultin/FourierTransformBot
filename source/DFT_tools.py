@@ -55,6 +55,7 @@ def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
     ax.set_xlim([-lim, lim])
     ax.set_ylim([-lim, lim])
     ax.set_aspect('equal')
+    ax.set_facecolor('black')
 
     line = plt.plot([], [], color='black', linewidth=2)[0]
     radius = [plt.plot([], [], color='red', linewidth=0.5)[0]
