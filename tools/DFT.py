@@ -48,5 +48,5 @@ def get_ani(image, *, ID=None, approx_level=60, frames=180):
 
     anim = visualize(coords[:, 0], coords[:, 1], coef, approx_level, space, [xmin, xmax, ymin, ymax])
     FFwriter = animation.FFMpegWriter(fps=24, extra_args=['-vcodec', 'libx264'])
-    anim.save(f'{ID}_Fourier.mp4', writer=FFwriter, dpi=300)
+    anim.save(f'{ID}_Fourier.mp4', writer=FFwriter, dpi=300, savefig_kwargs=dict(facecolor='black'))
     plt.close('all')
