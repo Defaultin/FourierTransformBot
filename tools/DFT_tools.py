@@ -49,7 +49,6 @@ def DFT(t, coef_list, order=10):
 
 def visualize(x_DFT, y_DFT, coef, order, space, fig_lim):
     fig, ax = plt.subplots()
-    fig.patch.set_facecolor('black')
     lim = 3*max(fig_lim)/2
     ax.set_xlim([-lim, lim])
     ax.set_ylim([-lim, lim])
