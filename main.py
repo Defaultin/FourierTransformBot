@@ -19,12 +19,20 @@ hide_keyboard = telebot.types.ReplyKeyboardRemove()
 lang_keyboard = telebot.types.ReplyKeyboardMarkup(True, True, True)
 lang_keyboard.row('Русский 🇷🇺', 'English 🇬🇧', 'Deutsch 🇩🇪')
 
-keyboards = [telebot.types.ReplyKeyboardMarkup(True, True, True)] * 3
+keyboards = [
+    telebot.types.ReplyKeyboardMarkup(True, True, True),
+    telebot.types.ReplyKeyboardMarkup(True, True, True),
+    telebot.types.ReplyKeyboardMarkup(True, True, True)
+]
 keyboards[0].row('№1 👍', '№2 👍', 'НИЧЕГО 👎')
 keyboards[1].row('№1 👍', '№2 👍', 'NOTHING 👎')
 keyboards[2].row('№1 👍', '№2 👍', 'NICHTS 👎')
 
-neuro_keyboards = [telebot.types.ReplyKeyboardMarkup(True, True)] * 3
+neuro_keyboards = [
+    telebot.types.ReplyKeyboardMarkup(True, True),
+    telebot.types.ReplyKeyboardMarkup(True, True),
+    telebot.types.ReplyKeyboardMarkup(True, True)
+]
 neuro_keyboards[0].row('ДА 👍', 'НЕТ 👎')
 neuro_keyboards[1].row('YES 👍', 'NO 👎')
 neuro_keyboards[2].row('JA 👍', 'NEIN 👎')
